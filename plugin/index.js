@@ -57,7 +57,7 @@ class plugin {
       let that = this;
       this.option.addEventListener('click', function(e) {
         that.setCookie('gdpr', e.target.id);
-        console.log('GDPR: ' + gdpr);
+        console.log('GDPR: ' + e.target.id);
         that.destroy();
       });
       this.box.appendChild(this.option);
