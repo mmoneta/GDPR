@@ -1,6 +1,6 @@
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .jumbotron, .body-content {
@@ -18,6 +18,6 @@
 }
 
 ::-webkit-scrollbar {
-    float: left;
-    width: 0px;
+  float: left;
+  width: 0px;
 }
