@@ -54,7 +54,7 @@ class plugin {
       this.option.id = options[i];
       this.option.innerHTML = options[i];
       this.option.style.cssText = 'padding: 10px 15px; margin: 0px 0px 10px 10px;';
-      var that = this;
+      let that = this;
       this.option.addEventListener('click', function(e) {
         that.setCookie('gdpr', e.target.id);
         that.destroy();
