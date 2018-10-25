@@ -5,17 +5,18 @@ class plugin {
   }
   
   setCookie(cname, cvalue) {
-    var d = new Date();
+    let d = new Date();
     d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
-    var expires = "expires=" + d.toUTCString();
+    let expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
   
   getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-      var c = ca[i];
+    var name = cname + "=",
+	ca = document.cookie.split(';');
+	
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
       while (c.charAt(0) == ' ') {
         c = c.substring(1);
       }
@@ -32,10 +33,9 @@ class plugin {
       return 'GDPR: ' + gdpr;
     }
     else {
-      var that = this;
       window.addEventListener('DOMContentLoaded', function() {
-        that.create();
-      })
+        this.create();
+      }.bind(this));
       return 'Plugin init';
     }
   }
@@ -54,12 +54,11 @@ class plugin {
       this.option.id = options[i];
       this.option.innerHTML = options[i];
       this.option.style.cssText = 'padding: 10px 15px; margin: 0px 0px 10px 10px;';
-      let that = this;
       this.option.addEventListener('click', function(e) {
-        that.setCookie('gdpr', e.target.id);
+        this.setCookie('gdpr', e.target.id);
         console.log('GDPR: ' + e.target.id);
         that.destroy();
-      });
+      }.bind(this));
       this.box.appendChild(this.option);
     }
   }
