@@ -5,15 +5,15 @@ class plugin {
   }
   
   setCookie(cname, cvalue) {
-    let d = new Date();
+    var d = new Date();
     d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
-    let expires = "expires=" + d.toUTCString();
+    var expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
   
   getCookie(cname) {
     var name = cname + "=",
-	ca = document.cookie.split(';');
+    ca = document.cookie.split(';');
 	
     for (let i = 0; i < ca.length; i++) {
       let c = ca[i];
